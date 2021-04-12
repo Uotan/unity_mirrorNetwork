@@ -115,12 +115,14 @@ public class player : NetworkBehaviour
     {
         flip = !flip;
         gameObject.transform.localScale = new Vector3(-1f,1f,1f);
+        eyes.transform.localScale = new Vector3(-1f, 1f, 1f);
 
     }
     void Flip1()
     {
         flip = !flip;
         gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        eyes.transform.localScale = new Vector3(1f, 1f, 1f);
     }
     private void CheckGround()
     {
