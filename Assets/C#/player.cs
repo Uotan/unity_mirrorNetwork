@@ -12,7 +12,9 @@ public class player : NetworkBehaviour
     public Animator _animatorController;
 
     public Text myNick;
-    
+
+    public GameObject gun;
+    public forGun gunscript;
 
     public int _speed;
     private float slidingH;
@@ -71,6 +73,39 @@ public class player : NetworkBehaviour
             {
                 Jump();
             }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                //if (gun.activeInHierarchy)
+                //{
+                //    gun.SetActive(false);
+                //}
+                //else
+                //{
+                //    gun.SetActive(true);
+                //}
+
+
+                //if (isServer)
+                //{
+                CmdenGun();
+                //}
+                //if (isClient)
+                //{
+                //    CmdenGun();
+                //}
+            }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                //gunscript.Reload();
+                //if (isServer)
+                //{
+                    CmdreloadGun();
+                //}
+                //if (isClient)
+                //{
+                //    CmdreloadGun();
+                //}
+            }
         }
             
             
@@ -80,6 +115,50 @@ public class player : NetworkBehaviour
     {
         rb.velocity = (Vector2.up * JumpForce);
     }
+
+    [Command]
+    public void CmdenGun()
+    {
+        //if (gun.activeInHierarchy)
+        //{
+        //    gun.SetActive(false);
+        //}
+        //else
+        //{
+        //    gun.SetActive(true);
+        //}
+        RpcenGun();
+    }
+
+    [ClientRpc]
+    public void RpcenGun()
+    {
+        if (gun.activeInHierarchy)
+        {
+            gun.SetActive(false);
+        }
+        else
+        {
+            gun.SetActive(true);
+        }
+    }
+
+
+
+    
+    [ClientRpc]
+    public void RpcreloadGun()
+    {
+        gunscript.Reload();
+    }
+
+    [Command]
+    public void CmdreloadGun()
+    {
+        //gunscript.Reload();
+        RpcreloadGun();
+    }
+
     void walk()
     {
         float h = 0f;
