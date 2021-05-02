@@ -21,8 +21,12 @@ public class player : NetworkBehaviour
     private float slidingV;
     public float JumpForce;
     public bool flip = true;
+    public bool isdead = false;
+    public int healts = 3;
 
-    public GameObject eyes; 
+    public GameObject eyes;
+
+    public GameObject _cameratest;
 
     public ForGrondChecker GroundChecker1;
     public GameObject GroundCheckGO;
@@ -35,8 +39,12 @@ public class player : NetworkBehaviour
 
         if (hasAuthority)
         {
-            eyes.SetActive(true);
-            myNick.text = PlayerPrefs.GetString("net_name");
+            GameObject test = Instantiate(_cameratest);
+            test.GetComponent<Camera>().player = gameObject;
+            test.GetComponent<Camera>().myNick.text = PlayerPrefs.GetString("net_name");
+
+            //eyes.SetActive(true);
+            //myNick.text = PlayerPrefs.GetString("net_name");
         }
 
     }
@@ -48,65 +56,82 @@ public class player : NetworkBehaviour
 
         if (hasAuthority)
         {
+            if (isdead!=true)
+            {
+                CheckGround();
+                walk();
+                if (isGrounded == false)
+                {
+                    _animatorController.Play("Jump");
+                }
+                else if (rb.velocity.y == 0 && rb.velocity.x == 0 && isGrounded == true)
+                {
+                    _animatorController.Play("Idle");
+                }
+                else if (isGrounded == true && rb.velocity.x != 0)
+                {
+                    _animatorController.Play("Walk");
+                }
+                else
+                {
+                    _animatorController.Play("Idle");
+                }
+
+                if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+                {
+                    Jump();
+                }
+                if (Input.GetKeyDown(KeyCode.B))
+                {
+                    //if (gun.activeInHierarchy)
+                    //{
+                    //    gun.SetActive(false);
+                    //}
+                    //else
+                    //{
+                    //    gun.SetActive(true);
+                    //}
 
 
-            CheckGround();
-            walk();
-            if (isGrounded == false)
-            {
-                _animatorController.Play("Jump");
-            }
-            else if (rb.velocity.y == 0 && rb.velocity.x == 0 && isGrounded == true)
-            {
-                _animatorController.Play("Idle");
-            }
-            else if (isGrounded == true && rb.velocity.x != 0)
-            {
-                _animatorController.Play("Walk");
+                    //if (isServer)
+                    //{
+                    CmdenGun();
+                    //}
+                    //if (isClient)
+                    //{
+                    //    CmdenGun();
+                    //}
+                }
+                if (Input.GetKeyDown(KeyCode.V))
+                {
+                    //gunscript.Reload();
+                    //if (isServer)
+                    //{
+                    CmdreloadGun();
+                    //}
+                    //if (isClient)
+                    //{
+                    //    CmdreloadGun();
+                    //}
+                }
+                if (Input.GetKeyUp(KeyCode.F))
+                {
+                    healts--;
+                    if (healts==0)
+                    {
+                        isdead = true;
+                        
+                    }
+                }
             }
             else
             {
-                _animatorController.Play("Idle");
-            }
-
-            if (Input.GetKeyDown(KeyCode.W) && isGrounded)
-            {
-                Jump();
-            }
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                //if (gun.activeInHierarchy)
-                //{
-                //    gun.SetActive(false);
-                //}
-                //else
-                //{
-                //    gun.SetActive(true);
-                //}
-
-
-                //if (isServer)
-                //{
                 CmdenGun();
-                //}
-                //if (isClient)
-                //{
-                //    CmdenGun();
-                //}
-            }
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                //gunscript.Reload();
-                //if (isServer)
-                //{
-                    CmdreloadGun();
-                //}
-                //if (isClient)
-                //{
-                //    CmdreloadGun();
-                //}
+                CmdDead();
             }
         }
+
+            
             
             
         
@@ -133,14 +158,22 @@ public class player : NetworkBehaviour
     [ClientRpc]
     public void RpcenGun()
     {
-        if (gun.activeInHierarchy)
+        if (isdead==true)
         {
             gun.SetActive(false);
         }
         else
         {
-            gun.SetActive(true);
+            if (gun.activeInHierarchy)
+            {
+                gun.SetActive(false);
+            }
+            else
+            {
+                gun.SetActive(true);
+            }
         }
+        
     }
 
 
@@ -155,8 +188,19 @@ public class player : NetworkBehaviour
     [Command]
     public void CmdreloadGun()
     {
-        //gunscript.Reload();
         RpcreloadGun();
+    }
+
+    [ClientRpc]
+    public void RpcDead()
+    {
+        _animatorController.Play("Dead");
+    }
+
+    [Command]
+    public void CmdDead()
+    {
+        RpcDead();
     }
 
     void walk()

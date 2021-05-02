@@ -164,13 +164,18 @@ MonoBehaviour:
   syncInterval: 0.1
   rb: {fileID: 0}
   _animatorController: {fileID: 0}
+  _spriterender: {fileID: 331883365329756548}
+  _deadsprite: {fileID: 4474807607592471817, guid: 2ac95d9c86ead824e86b49f4e9c0c967, type: 3}
   myNick: {fileID: 9027704440666936546}
   gun: {fileID: 5931890898607947383}
   gunscript: {fileID: 734056009464713977}
   _speed: 7
   JumpForce: 15
   flip: 1
+  isdead: 0
+  healts: 3
   eyes: {fileID: 7596993525436789316}
+  _cameratest: {fileID: 2794636041637966079, guid: d3f1ca7ac425aaf438c3340f70b43730, type: 3}
   GroundChecker1: {fileID: 331883366231787822}
   GroundCheckGO: {fileID: 331883366231787816}
   isGrounded: 1
