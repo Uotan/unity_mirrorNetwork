@@ -46,7 +46,8 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 2ac95d9c86ead824e86b49f4e9c0c967, type: 3}
     - {fileID: 2800000, guid: 3918f291f1bcd1842878d150c1140e21, type: 3}
     - {fileID: 2800000, guid: f2f17bc6a4c6d1e448c4f35029d04797, type: 3}
-    totalSpriteSurfaceArea: 17299
+    - {fileID: 2800000, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+    totalSpriteSurfaceArea: 24689
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -87,6 +88,24 @@ SpriteAtlas:
   - {fileID: 6264897545001491469, guid: f2f17bc6a4c6d1e448c4f35029d04797, type: 3}
   - {fileID: 7508911335847017212, guid: f2f17bc6a4c6d1e448c4f35029d04797, type: 3}
   - {fileID: 317480509091916443, guid: f2f17bc6a4c6d1e448c4f35029d04797, type: 3}
+  - {fileID: 2123419535491798157, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -4361478386895834505, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 2219305059187894726, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 2105633887851086511, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -2923590149747843626, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -7997601786704345523, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 8741815710808411235, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 3512052958393703898, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -1651749331482171413, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -5439586547288198617, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 5754684888180107763, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -4954585371606166367, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 641241187210727499, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -7637975879133302042, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 3504342054222027052, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 226256152781732833, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: -1554442970885100856, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
+  - {fileID: 2220503198105704094, guid: f0cbb9d74972f6f4f8d90f530ef1fa87, type: 3}
   - {fileID: 8475800341851349593, guid: 2ac95d9c86ead824e86b49f4e9c0c967, type: 3}
   - {fileID: 8951223033890984540, guid: 2ac95d9c86ead824e86b49f4e9c0c967, type: 3}
   - {fileID: 673235529932426457, guid: 2ac95d9c86ead824e86b49f4e9c0c967, type: 3}
@@ -141,6 +160,24 @@ SpriteAtlas:
   - DoubleShootGunTest_4
   - DoubleShootGunTest_5
   - DoubleShootGunTest_6
+  - characters_Hands_10
+  - characters_Hands_11
+  - characters_Hands_12
+  - characters_Hands_13
+  - characters_Hands_14
+  - characters_Hands_15
+  - characters_Hands_16
+  - characters_Hands_17
+  - characters_Hands_9
+  - characters_Hands_8
+  - characters_Hands_1
+  - characters_Hands_0
+  - characters_Hands_3
+  - characters_Hands_2
+  - characters_Hands_5
+  - characters_Hands_4
+  - characters_Hands_7
+  - characters_Hands_6
   - main_characters_11
   - main_characters_10
   - main_characters_13

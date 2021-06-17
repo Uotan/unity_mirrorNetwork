@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 331883365329756551}
   - component: {fileID: 331883365329756554}
   - component: {fileID: 8338016953047661526}
-  - component: {fileID: 3198974653263754090}
   - component: {fileID: 1539788894605594797}
+  - component: {fileID: 2088233456194424190}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -164,8 +164,6 @@ MonoBehaviour:
   syncInterval: 0.1
   rb: {fileID: 0}
   _animatorController: {fileID: 0}
-  _spriterender: {fileID: 331883365329756548}
-  _deadsprite: {fileID: 4474807607592471817, guid: 2ac95d9c86ead824e86b49f4e9c0c967, type: 3}
   myNick: {fileID: 9027704440666936546}
   gun: {fileID: 5931890898607947383}
   gunscript: {fileID: 734056009464713977}
@@ -196,63 +194,6 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &3198974653263754090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331883365329756544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad225009ad414e1428332cab226f38fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  interpolationBackTime: 0.05
-  extrapolationMode: 1
-  useExtrapolationTimeLimit: 1
-  extrapolationTimeLimit: 5
-  useExtrapolationDistanceLimit: 0
-  extrapolationDistanceLimit: 20
-  sendPositionThreshold: 0
-  sendRotationThreshold: 0
-  sendScaleThreshold: 0
-  sendVelocityThreshold: 0
-  sendAngularVelocityThreshold: 0
-  receivedPositionThreshold: 0
-  receivedRotationThreshold: 0
-  snapPositionThreshold: 0
-  snapRotationThreshold: 0
-  snapScaleThreshold: 0
-  positionLerpSpeed: 1
-  rotationLerpSpeed: 1
-  scaleLerpSpeed: 1
-  timeCorrectionSpeed: 0.01
-  snapTimeThreshold: 0.3
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 1
-  syncVelocity: 1
-  syncAngularVelocity: 1
-  isPositionCompressed: 0
-  isRotationCompressed: 0
-  isScaleCompressed: 0
-  isVelocityCompressed: 0
-  isAngularVelocityCompressed: 0
-  automaticallyResetTime: 1
-  isSmoothingAuthorityChanges: 0
-  transformSource: 0
-  whenToUpdateTransform: 0
-  sendRate: 50
-  networkChannel: 1
-  childObjectToSync: {fileID: 0}
-  setVelocityInsteadOfPositionOnNonOwners: 0
-  maxPositionDifferenceForVelocitySyncing: 10
-  useLocalTransformOnly: 0
-  ownerChangeIndicator: 1
-  receivedStatesCounter: 0
 --- !u!114 &1539788894605594797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +210,29 @@ MonoBehaviour:
   syncInterval: 0.01
   clientAuthority: 1
   animator: {fileID: 331883365329756549}
+--- !u!114 &2088233456194424190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331883365329756544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!1 &331883366231787816
 GameObject:
   m_ObjectHideFlags: 0
