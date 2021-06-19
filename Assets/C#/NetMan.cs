@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Mirror;
 
 public class NetMan : NetworkManager
@@ -8,7 +9,6 @@ public class NetMan : NetworkManager
     //bool playerSpawned;
     NetworkConnection connection;
     //ol playerConnected;
-
     public void OnCreateCharacter(NetworkConnection conn, PosMessage message)
     {
         GameObject go = Instantiate(playerPrefab, message.vector2, Quaternion.identity);
@@ -23,6 +23,7 @@ public class NetMan : NetworkManager
 
     public void ActivatePlayerSpawn()
     {
+        
         Vector3 pos = new Vector3(0f,0f,0f);
         //pos = Camera.main.ScreenToWorldPoint(pos);
 

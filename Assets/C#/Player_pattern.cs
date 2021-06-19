@@ -7,6 +7,7 @@ public class Player_pattern : MonoBehaviour
     public Rigidbody2D rb;
     public Animator _animatorController;
 
+    public GameObject eyes;
 
     public int _speed;
     private float slidingH;
@@ -24,6 +25,7 @@ public class Player_pattern : MonoBehaviour
     {
         _animatorController = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        eyes.SetActive(true);
     }
 
     void Update()
@@ -97,14 +99,14 @@ public class Player_pattern : MonoBehaviour
     {
         flip = !flip;
         gameObject.transform.localScale = new Vector3(-1f,1f,1f);
-        //eyes.transform.localScale = new Vector3(-1f, 1f, 1f);
+        eyes.transform.localScale = new Vector3(-1f, 1f, 1f);
 
     }
     void Flip1()
     {
         flip = !flip;
         gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        //eyes.transform.localScale = new Vector3(1f, 1f, 1f);
+        eyes.transform.localScale = new Vector3(1f, 1f, 1f);
     }
     private void CheckGround()
     {

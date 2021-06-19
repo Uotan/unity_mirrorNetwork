@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8338016953047661526}
   - component: {fileID: 1539788894605594797}
   - component: {fileID: 2088233456194424190}
+  - component: {fileID: 481710895814377923}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -36,7 +37,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 331883366231787823}
-  - {fileID: 2431459321388181315}
+  - {fileID: 9167433171182905255}
+  - {fileID: 4927229707811661238}
   - {fileID: 3696744440246352994}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -146,7 +148,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0625, y: 0.6875}
-  m_Size: {x: 1, y: 1.375}
+  m_Size: {x: 0.9, y: 1.375}
   m_Direction: 0
 --- !u!114 &331883365329756554
 MonoBehaviour:
@@ -172,8 +174,9 @@ MonoBehaviour:
   flip: 1
   isdead: 0
   healts: 3
-  eyes: {fileID: 7596993525436789316}
-  _cameratest: {fileID: 2794636041637966079, guid: d3f1ca7ac425aaf438c3340f70b43730, type: 3}
+  _camera: {fileID: 7252214417936310614}
+  _canvas: {fileID: 1971088153111114731}
+  _nickText: {fileID: 7424251447700231115}
   GroundChecker1: {fileID: 331883366231787822}
   GroundCheckGO: {fileID: 331883366231787816}
   isGrounded: 1
@@ -233,6 +236,63 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
+--- !u!114 &481710895814377923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331883365329756544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad225009ad414e1428332cab226f38fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  interpolationBackTime: 0.1
+  extrapolationMode: 1
+  useExtrapolationTimeLimit: 1
+  extrapolationTimeLimit: 5
+  useExtrapolationDistanceLimit: 0
+  extrapolationDistanceLimit: 20
+  sendPositionThreshold: 0
+  sendRotationThreshold: 0
+  sendScaleThreshold: 0
+  sendVelocityThreshold: 0
+  sendAngularVelocityThreshold: 0
+  receivedPositionThreshold: 0
+  receivedRotationThreshold: 0
+  snapPositionThreshold: 0
+  snapRotationThreshold: 0
+  snapScaleThreshold: 0
+  positionLerpSpeed: 1
+  rotationLerpSpeed: 0
+  scaleLerpSpeed: 1
+  timeCorrectionSpeed: 0.1
+  snapTimeThreshold: 0.3
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 1
+  syncVelocity: 1
+  syncAngularVelocity: 1
+  isPositionCompressed: 0
+  isRotationCompressed: 1
+  isScaleCompressed: 0
+  isVelocityCompressed: 0
+  isAngularVelocityCompressed: 0
+  automaticallyResetTime: 1
+  isSmoothingAuthorityChanges: 0
+  transformSource: 0
+  whenToUpdateTransform: 0
+  sendRate: 40
+  networkChannel: 1
+  childObjectToSync: {fileID: 0}
+  setVelocityInsteadOfPositionOnNonOwners: 0
+  maxPositionDifferenceForVelocitySyncing: 10
+  useLocalTransformOnly: 0
+  ownerChangeIndicator: 1
+  receivedStatesCounter: 0
 --- !u!1 &331883366231787816
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,8 +385,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2790225093081454527}
-  m_Father: {fileID: 2431459321388181315}
-  m_RootOrder: 1
+  m_Father: {fileID: 331883365329756555}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -411,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9167433171182905255
 Transform:
   m_ObjectHideFlags: 0
@@ -420,11 +480,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7252214417936310614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.34, z: 3.923585}
+  m_LocalPosition: {x: 0, y: 2.34, z: -5.386012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2431459321388181315}
-  m_RootOrder: 0
+  m_Father: {fileID: 331883365329756555}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3080515213895070107
 Camera:
@@ -556,38 +616,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: nickname
---- !u!1 &7596993525436789316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2431459321388181315}
-  m_Layer: 0
-  m_Name: eyee
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2431459321388181315
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7596993525436789316}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.309597}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 9167433171182905255}
-  - {fileID: 4927229707811661238}
-  m_Father: {fileID: 331883365329756555}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9104151481193481272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5554355551907543130, guid: a58273d2f6eaa394999e7e7f471629d2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5554355551907543130, guid: a58273d2f6eaa394999e7e7f471629d2, type: 3}
       propertyPath: m_LocalPosition.x

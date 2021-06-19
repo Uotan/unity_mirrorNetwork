@@ -24,9 +24,11 @@ public class player : NetworkBehaviour
     public bool isdead = false;
     public int healts = 3;
 
-    public GameObject eyes;
+    public GameObject _camera;
+    public GameObject _canvas;
+    public GameObject _nickText;
 
-    public GameObject _cameratest;
+    public CapsuleCollider2D _collider;
 
     public ForGrondChecker GroundChecker1;
     public GameObject GroundCheckGO;
@@ -39,12 +41,9 @@ public class player : NetworkBehaviour
 
         if (hasAuthority)
         {
-            GameObject test = Instantiate(_cameratest);
-            test.GetComponent<Camera>().player = gameObject;
-            test.GetComponent<Camera>().myNick.text = PlayerPrefs.GetString("net_name");
-
-            //eyes.SetActive(true);
-            //myNick.text = PlayerPrefs.GetString("net_name");
+            _camera.SetActive(true);
+            myNick.text = PlayerPrefs.GetString("net_name");
+            CmdCanvas();
         }
 
     }
@@ -83,36 +82,11 @@ public class player : NetworkBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.B))
                 {
-                    //if (gun.activeInHierarchy)
-                    //{
-                    //    gun.SetActive(false);
-                    //}
-                    //else
-                    //{
-                    //    gun.SetActive(true);
-                    //}
-
-
-                    //if (isServer)
-                    //{
                     CmdenGun();
-                    //}
-                    //if (isClient)
-                    //{
-                    //    CmdenGun();
-                    //}
                 }
                 if (Input.GetKeyDown(KeyCode.V))
                 {
-                    //gunscript.Reload();
-                    //if (isServer)
-                    //{
                     CmdreloadGun();
-                    //}
-                    //if (isClient)
-                    //{
-                    //    CmdreloadGun();
-                    //}
                 }
                 if (Input.GetKeyUp(KeyCode.F))
                 {
@@ -144,14 +118,6 @@ public class player : NetworkBehaviour
     [Command]
     public void CmdenGun()
     {
-        //if (gun.activeInHierarchy)
-        //{
-        //    gun.SetActive(false);
-        //}
-        //else
-        //{
-        //    gun.SetActive(true);
-        //}
         RpcenGun();
     }
 
@@ -160,7 +126,9 @@ public class player : NetworkBehaviour
     {
         if (isdead==true)
         {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             gun.SetActive(false);
+            gameObject.layer=9;
         }
         else
         {
@@ -175,10 +143,6 @@ public class player : NetworkBehaviour
         }
         
     }
-
-
-
-    
     [ClientRpc]
     public void RpcreloadGun()
     {
@@ -238,14 +202,16 @@ public class player : NetworkBehaviour
     {
         flip = !flip;
         gameObject.transform.localScale = new Vector3(-1f,1f,1f);
-        eyes.transform.localScale = new Vector3(-1f, 1f, 1f);
+        _camera.transform.localScale = new Vector3(-1f, 1f, 1f);
+        _nickText.transform.localScale = new Vector3(-1f, 1f, 1f);
 
     }
     void Flip1()
     {
         flip = !flip;
         gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        eyes.transform.localScale = new Vector3(1f, 1f, 1f);
+        _camera.transform.localScale = new Vector3(1f, 1f, 1f);
+        _nickText.transform.localScale = new Vector3(1f, 1f, 1f);
     }
     private void CheckGround()
     {
@@ -276,6 +242,19 @@ public class player : NetworkBehaviour
         return new Vector2(
                (Mathf.Abs(slidingH) < deadZone) ? 0f : slidingH,
                (Mathf.Abs(slidingV) < deadZone) ? 0f : slidingV);
+    }
+
+
+    [Command]
+    public void CmdCanvas()
+    {
+        RpcCanvas();
+    }
+
+    [ClientRpc]
+    public void RpcCanvas()
+    {
+        _canvas.SetActive(true);
     }
 }
 
