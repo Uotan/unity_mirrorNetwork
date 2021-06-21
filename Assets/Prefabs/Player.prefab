@@ -177,6 +177,7 @@ MonoBehaviour:
   _camera: {fileID: 7252214417936310614}
   _canvas: {fileID: 1971088153111114731}
   _nickText: {fileID: 7424251447700231115}
+  _collider: {fileID: 0}
   GroundChecker1: {fileID: 331883366231787822}
   GroundCheckGO: {fileID: 331883366231787816}
   isGrounded: 1

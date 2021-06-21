@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/room.unity
+    path: Assets/Scenes/menu.unity
+    guid: e3469df3443ff2b41a39f96eeb018734
+  - enabled: 1
+    path: Assets/Scenes/Mirror/mirror_room.unity
     guid: 4b3fd58dccaf7ff4997311fea38eb84b
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Mirror/mirror_map.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/PUN2/connecting.unity
+    guid: cae24009bdec6584b89f3dac79f038fb
+  - enabled: 1
+    path: Assets/Scenes/PUN2/menu.unity
+    guid: 36841bc3c7c48aa448608425009b82b3
+  - enabled: 1
+    path: Assets/Scenes/PUN2/pun_map.unity
+    guid: 5d81e755dde8fee4189cb29c69ce6448
   m_configObjects: {}

@@ -126,7 +126,7 @@ public class player : NetworkBehaviour
     {
         if (isdead==true)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             gun.SetActive(false);
             gameObject.layer=9;
         }

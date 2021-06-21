@@ -140,7 +140,7 @@ MonoBehaviour:
   rb: {fileID: 6249662584311245099}
   _animatorController: {fileID: 6249662584311245142}
   eyes: {fileID: 6632482529300981992}
-  _speed: 7
+  _speed: 8
   JumpForce: 15
   flip: 1
   isdead: 0
@@ -287,7 +287,7 @@ Camera:
   far clip plane: 50
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
